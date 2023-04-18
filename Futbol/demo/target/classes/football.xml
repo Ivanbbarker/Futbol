@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                        ">
+<context:annotation-config />
+
+<bean id="match" class="futbol.demo.Match"></bean>
+<bean id="team1" class="futbol.demo.Team">
+    <qualifier value="osasuna"/>
+    <property name="players">
+        <map>
+            <entry key="24" value-ref="player1" />
+            <entry key="1" value-ref="player2" />
+        </map>
+    </property>
+</bean>
+
+<bean id="team2" class="futbol.demo.Team">
+    <qualifier value="erreala"/>
+    <property name="homeStadium" ref="home1" />
+    <property name="name" value="Real Sociedad" />
+    <property name="players">
+        <map>
+            <entry key="4" value-ref="player3" />
+            <entry key="17" value-ref="player4" />
+        </map>
+    </property>
+</bean>
+
+
+<bean id="home1" class="futbol.demo.Home">
+    <qualifier value="sadar"/>
+    <property name="name" value="Sadar"/>
+</bean>
+
+<bean id="referee" class="futbol.demo.Referee">
+    <qualifier value="undiano"/>
+    <property name="name" value="Undiano Mallenco"/>
+</bean>
+
+<bean id="referee2" class="futbol.demo.Referee">
+    <qualifier value="mejuto"/>
+    <property name="name" value="Mejuto Gonzalez"/>
+</bean>
+
+<bean id="player1" class="futbol.demo.Player">
+    <property name="name" value="Ilarra" />
+    <property name="number" value="24" />
+    <property name="position" value="Midfielder" />
+</bean>
+
+<bean id="player2" class="futbol.demo.Player">
+    <property name="name" value="Casillas" />
+    <property name="number" value="1" />
+    <property name="position" value="Keeper" />
+</bean>
+
+<bean id="player3" class="futbol.demo.Player">
+    <property name="name" value="Pepe" />
+    <property name="number" value="4" />
+    <property name="position" value="Defender" />
+</bean>
+
+<bean id="player4" class="futbol.demo.Player">
+    <property name="name" value="Azpilicueta" />
+    <property name="number" value="17" />
+    <property name="position" value="Fullback" />
+</bean>
+
+</beans>
